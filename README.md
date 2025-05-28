@@ -1,4 +1,4 @@
-# GS-CQS-EvacTech-Simulation
+# GS-EvacTech-Simulation
 
 ## 📘 Notebook do Projeto
 
