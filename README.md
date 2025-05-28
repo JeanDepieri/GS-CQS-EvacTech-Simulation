@@ -1,30 +1,9 @@
 # GS-CQS-EvacTech-Simulation
 
+## 📘 Notebook do Projeto
 
-=## 💻 Exemplo de Simulação
+Clique para acessar o notebook com a simulação quântica completa:
 
-O trecho abaixo simula sensores sísmico, de temperatura, de CO₂/O₂ e de vento em um circuito quântico com Qiskit:
+📘 Acesse o notebook do projeto:  
+👉 [quantum_routing_simulation.ipynb](https://github.com/JeanDepieri/GS-CQS-EvacTech-Simulation/blob/main/quantum_routing_simulation.ipynb.ipynb)
 
-```python
-from qiskit import QuantumCircuit, execute
-from qiskit_aer import Aer
-from qiskit.visualization import plot_histogram
-import matplotlib.pyplot as plt
-
-qc = QuantumCircuit(4, 4)
-
-# Superposição: sensores fazendo leitura
-qc.h([0, 1, 2, 3])
-
-# Emaranhamento: sensores interdependentes
-qc.cx(0, 1)  # sismo afeta temperatura
-qc.cx(2, 3)  # CO₂/O₂ afeta vento
-
-# Medição
-qc.measure([0, 1, 2, 3], [0, 1, 2, 3])
-
-# Simulação
-backend = Aer.get_backend('qasm_simulator')
-resultado = execute(qc, backend=backend, shots=1024).result()
-plot_histogram(resultado.get_counts())
-plt.show()
